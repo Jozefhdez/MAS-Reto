@@ -19,15 +19,11 @@ This project implements an intelligent drone system that autonomously searches f
 
 ## 🔧 Installation
 
-### Prerequisites
-- Unity Hub
-- Unity 2025.1 or later
-
 ### Setup Instructions
 
 1. **Download the Unity Package**
    ```
-   [https://drive.google.com/drive/folders/1e5msq0kcWxq--s3bpFjkQ7nxeX3J-crL?usp=sharing]
+   https://drive.google.com/drive/folders/1e5msq0kcWxq--s3bpFjkQ7nxeX3J-crL?usp=sharing
    ```
 
 2. **Create Unity Project**
@@ -73,12 +69,7 @@ This project implements an intelligent drone system that autonomously searches f
   - 🔍 `[SEARCHING]` - Looking for targets
   - 🟡 `[FLYING TO TARGET]` - Moving towards assigned person
   - 🟠 `[LANDING]` - Descending to target location
-  - 🟢 `[ASSIGNED TO PERSON]` - Successfully landed and assigned
-
-### Automatic Operation
-- Drones autonomously search for and assign themselves to people
-- Multiple drones coordinate to avoid targeting the same person
-- Each drone maintains its assignment once successfully landed
+  - 🟢 `[LANDED]` - Successfully landed and assigned
 
 ## 👥 Team Members
 
