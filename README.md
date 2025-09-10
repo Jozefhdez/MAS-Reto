@@ -4,7 +4,7 @@
 [![C#](https://img.shields.io/badge/C%23-9.0-green.svg)](https://docs.microsoft.com/en-us/dotnet/csharp/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> A sophisticated multi-agent system simulation featuring autonomous drones with vision-based person detection and coordination capabilities.
+> A  multi-agent system simulation featuring autonomous drones with vision-based person detection and coordination capabilities.
 
 ## Project Overview
 
@@ -58,20 +58,22 @@ This project implements an intelligent drone system that autonomously searches f
    - Press Play in Unity
    - Enjoy the autonomous drone simulation!
 
-### Main Interface
-The simulation features a comprehensive graphical interface with:
+## 🎮 User Interface
+![UI](images/UI.png)
 
 ### Control Panel
+![Control Panel Screenshot](images/ControlPanel.png)
 - **Pause/Resume**: Pause or resume the simulation
 - **Restart**: Reset the simulation to initial state  
 - **Speed Control**: Adjust simulation speed (0.5x, 1x, 2x, 4x)
 
 ### Drone Status Panel
+![Drone Status Panel](images/DroneStatus.png)
 - **Real-time Status**: Monitor each drone's current state:
-  - `[SEARCHING]` - Looking for targets
-  - `[FLYING TO TARGET]` - Moving towards assigned person
-  - `[LANDING]` - Descending to target location
-  - `[ASSIGNED TO PERSON]` - Successfully landed and assigned
+  - 🔍 `[SEARCHING]` - Looking for targets
+  - 🟡 `[FLYING TO TARGET]` - Moving towards assigned person
+  - 🟠 `[LANDING]` - Descending to target location
+  - 🟢 `[ASSIGNED TO PERSON]` - Successfully landed and assigned
 
 ### Automatic Operation
 - Drones autonomously search for and assign themselves to people
@@ -80,25 +82,11 @@ The simulation features a comprehensive graphical interface with:
 
 ## 👥 Team Members
 
-| Student ID | Name
-| A01639866 | Ana Elena Velasco García
-| A01643496 | Baltazar Servín Riveroll
-| A01644781 | Emilio Pardo Gutiérrez
-| A01644644 | Jozef David Hernández Campos
-| A01639205 | Maria José Medina Calderón
-
-## 📋 Technical Architecture
-
-### Core Components
-- **DroneVisionSystem**: Handles autonomous target detection and tracking
-- **DroneLandingController**: Manages flight patterns and landing procedures  
-- **DroneTargetAssigner**: Coordinates assignments between multiple drones
-- **UI Systems**: Real-time status display and simulation controls
-
-### Multi-Agent Behavior
-- Each drone operates independently with its own vision and decision-making
-- Centralized coordination prevents multiple drones targeting the same person
-- Intelligent obstacle avoidance and alternative search patterns
+- Ana Elena Velasco García – A01639866  
+- Baltazar Servín Riveroll – A01643496  
+- Emilio Pardo Gutiérrez – A01644781  
+- Jozef David Hernández Campos – A01644644  
+- Maria José Medina Calderón – A01639205  
 
 ## 📚 Documentation
 
