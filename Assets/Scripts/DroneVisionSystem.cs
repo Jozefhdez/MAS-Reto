@@ -285,6 +285,8 @@ public class DroneVisionSystem : MonoBehaviour
     public Transform CurrentTarget => targetPerson;
     public List<Transform> GetDetectedPersons() => new List<Transform>(detectedPersons);
     public int DetectedPersonCount => detectedPersons.Count;
+    public bool IsLanded => hasLanded;
+    public bool IsScanningEnabled => scanningEnabled;
     
     // Methods to change scanning mode
     public void SetContinuousRotation(bool enabled)
@@ -318,24 +320,55 @@ public class DroneVisionSystem : MonoBehaviour
     
     public void ResumeScanning()
     {
+        // Don't resume scanning if drone has successfully landed with a person
+        if (hasLanded && targetPerson != null)
+        {
+            Debug.Log($"Drone {gameObject.name} will not resume scanning - successfully landed with {targetPerson.name}");
+            return;
+        }
+        
         scanningEnabled = true;
         hasLanded = false;
+        
+        // Make sure the vision coroutine is running
+        StopCoroutine(VisionUpdateCoroutine());
+        StartCoroutine(VisionUpdateCoroutine());
+        
+        Debug.Log($"Drone {gameObject.name} resumed scanning for targets");
+    }
+    
+    // Method to manually release a drone from its current assignment (for simulation reset)
+    public void ForceReleaseCurrent()
+    {
+        if (targetPerson != null)
+        {
+            Debug.Log($"Drone {gameObject.name} force releasing target {targetPerson.name}");
+            DroneTargetAssigner.ReleasePerson(targetPerson);
+            targetPerson = null;
+        }
+        
+        hasLanded = false;
+        scanningEnabled = true;
+        
+        // Restart vision coroutine
+        StopCoroutine(VisionUpdateCoroutine());
+        StartCoroutine(VisionUpdateCoroutine());
     }
     
     private void CheckIfLanded()
     {
         if (droneController != null && targetPerson != null)
         {
-            float distanceToGround = transform.position.y;
-            float distanceToTarget = Vector3.Distance(transform.position, targetPerson.position);
-            
-            if (distanceToGround < 2f && distanceToTarget < 5f && !hasLanded)
+            // Use the actual controller state instead of manual distance checking
+            if (droneController.IsLanded && !hasLanded)
             {
                 hasLanded = true;
-                scanningEnabled = false; // STOP EVERYTHING
+                scanningEnabled = false; // STOP EVERYTHING - Stay with this person
                 OnDroneLanded?.Invoke(droneController);
                 
-                StopAllCoroutines();
+                Debug.Log($"Drone {gameObject.name} has successfully landed near {targetPerson.name} and will stay assigned");
+                
+                // Do NOT release the target - drone stays with this person permanently
             }
         }
     }

@@ -28,11 +28,8 @@ public class DroneLandingController : MonoBehaviour
     public float avoidLookAhead = 4f;
     public float landClearRadius = 2f;
 
-    [Header("Debug / Input")]
-    [Tooltip("Press L to send the drone to 'demoTargetXZ'.")]
     public Vector2 demoTargetXZ = new Vector2(0, 0);
-    [Tooltip("Enable mouse click-to-command: Left-Click on ground to set target.")]
-    public bool enableMouseClickCommand = true;
+    public bool enableMouseClickCommand = false; // DESACTIVADO PERMANENTEMENTE
 
     // State
     private DroneState _state = DroneState.Idle;
@@ -44,6 +41,10 @@ public class DroneLandingController : MonoBehaviour
     private Vector3 _detourPoint;
 
     // --- Public API ---
+    
+    public DroneState CurrentState => _state;
+    public bool IsLanded => _state == DroneState.Landed;
+    public bool HasActiveTarget => _hasTarget;
 
     public void SetLandingTarget(float x, float z)
     {
@@ -62,18 +63,7 @@ public class DroneLandingController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            SetLandingTarget(demoTargetXZ.x, demoTargetXZ.y);
-        }
-        if (enableMouseClickCommand && Input.GetMouseButtonDown(0))
-        {
-            if (TryGetMouseGroundPoint(out Vector3 hitPoint))
-            {
-                SetLandingTarget(hitPoint.x, hitPoint.z);
-            }
-        }
-
+        
         if (!_hasTarget) return;
 
         switch (_state)
