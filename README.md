@@ -55,16 +55,22 @@ This project implements an intelligent drone system that autonomously searches f
    - Enjoy the autonomous drone simulation!
 
 ## 🎮 User Interface
-![UI](images/UI.png)
+<div align="center">
+  <img src="images/UI.png" alt="Main UI Screenshot">
+</div>
 
 ### Control Panel
-![Control Panel Screenshot](images/ControlPanel.png)
+<div align="center">
+  <img src="images/ControlPanel.png" alt="Control Panel Screenshot">
+</div>
 - **Pause/Resume**: Pause or resume the simulation
 - **Restart**: Reset the simulation to initial state  
 - **Speed Control**: Adjust simulation speed (0.5x, 1x, 2x, 4x)
 
 ### Drone Status Panel
-![Drone Status Panel](images/DroneStatus.png)
+<div align="center">
+  <img src="images/DroneStatus.png" alt="Drone Status Panel">
+</div>
 - **Real-time Status**: Monitor each drone's current state:
   - 🔍 `[SEARCHING]` - Looking for targets
   - 🟡 `[FLYING TO TARGET]` - Moving towards assigned person
