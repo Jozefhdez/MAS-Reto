@@ -85,10 +85,11 @@ This project implements an intelligent drone system that autonomously searches f
 - Baltazar Servín Riveroll – A01643496  
 - Emilio Pardo Gutiérrez – A01644781  
 - Jozef David Hernández Campos – A01644644  
-- Maria José Medina Calderón – A01639205  
+- Maria José Medina Calderón – A01639205
 
 ## 📚 Documentation
 
 - [Review 1 PDF](Review1.pdf)
 - [Review 2 PDF](Review2.pdf)
 - [Review 3 PDF](Review3.pdf)
+- [Evidence 2 PDF](Evidence2.pdf)
